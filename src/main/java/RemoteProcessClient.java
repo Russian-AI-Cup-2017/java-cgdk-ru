@@ -51,7 +51,7 @@ public final class RemoteProcessClient implements Closeable {
 
     public void writeProtocolVersionMessage() throws IOException {
         writeEnum(MessageType.PROTOCOL_VERSION);
-        writeInt(1);
+        writeInt(2);
         flush();
     }
 
@@ -109,6 +109,7 @@ public final class RemoteProcessClient implements Closeable {
             writeDouble(move.getX());
             writeDouble(move.getY());
             writeDouble(move.getAngle());
+            writeDouble(move.getFactor());
             writeDouble(move.getMaxSpeed());
             writeDouble(move.getMaxAngularSpeed());
             writeEnum(move.getVehicleType());
