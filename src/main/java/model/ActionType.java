@@ -71,5 +71,10 @@ public enum ActionType {
     /**
      * Настроить производство нужного типа техники на заводе ({@code FacilityType.VEHICLE_FACTORY}).
      */
-    SETUP_VEHICLE_PRODUCTION
+    SETUP_VEHICLE_PRODUCTION,
+
+    /**
+     * Запросить тактический ядерный удар.
+     */
+    TACTICAL_NUCLEAR_STRIKE
 }

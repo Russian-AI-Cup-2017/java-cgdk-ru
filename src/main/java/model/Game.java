@@ -93,6 +93,11 @@ public class Game {
     private final double facilityCapturePointsPerVehiclePerTick;
     private final double facilityWidth;
     private final double facilityHeight;
+    private final int baseTacticalNuclearStrikeCooldown;
+    private final int tacticalNuclearStrikeCooldownDecreasePerControlCenter;
+    private final double maxTacticalNuclearStrikeDamage;
+    private final double tacticalNuclearStrikeRadius;
+    private final int tacticalNuclearStrikeDelay;
 
     @SuppressWarnings("OverlyLongMethod")
     public Game(
@@ -120,7 +125,9 @@ public class Game {
             double fighterVisionRange, double fighterGroundAttackRange, double fighterAerialAttackRange,
             int fighterGroundDamage, int fighterAerialDamage, int fighterGroundDefence, int fighterAerialDefence,
             int fighterAttackCooldownTicks, int fighterProductionCost, double maxFacilityCapturePoints,
-            double facilityCapturePointsPerVehiclePerTick, double facilityWidth, double facilityHeight) {
+            double facilityCapturePointsPerVehiclePerTick, double facilityWidth, double facilityHeight,
+            int baseTacticalNuclearStrikeCooldown, int tacticalNuclearStrikeCooldownDecreasePerControlCenter,
+            double maxTacticalNuclearStrikeDamage, double tacticalNuclearStrikeRadius, int tacticalNuclearStrikeDelay) {
         this.randomSeed = randomSeed;
         this.tickCount = tickCount;
         this.worldWidth = worldWidth;
@@ -210,6 +217,11 @@ public class Game {
         this.facilityCapturePointsPerVehiclePerTick = facilityCapturePointsPerVehiclePerTick;
         this.facilityWidth = facilityWidth;
         this.facilityHeight = facilityHeight;
+        this.baseTacticalNuclearStrikeCooldown = baseTacticalNuclearStrikeCooldown;
+        this.tacticalNuclearStrikeCooldownDecreasePerControlCenter = tacticalNuclearStrikeCooldownDecreasePerControlCenter;
+        this.maxTacticalNuclearStrikeDamage = maxTacticalNuclearStrikeDamage;
+        this.tacticalNuclearStrikeRadius = tacticalNuclearStrikeRadius;
+        this.tacticalNuclearStrikeDelay = tacticalNuclearStrikeDelay;
     }
 
     /**
@@ -865,5 +877,42 @@ public class Game {
      */
     public double getFacilityHeight() {
         return facilityHeight;
+    }
+
+    /**
+     * @return Возвращает минимально возможный интервал между двумя последовательными тактическими ядерными ударами
+     * ({@code ActionType.TACTICAL_NUCLEAR_STRIKE}).
+     */
+    public int getBaseTacticalNuclearStrikeCooldown() {
+        return baseTacticalNuclearStrikeCooldown;
+    }
+
+    /**
+     * @return Возвращает уменьшение интервала между тактическими ядерными ударами за каждый захваченный центр
+     * управления ({@code FacilityType.CONTROL_CENTER}).
+     */
+    public int getTacticalNuclearStrikeCooldownDecreasePerControlCenter() {
+        return tacticalNuclearStrikeCooldownDecreasePerControlCenter;
+    }
+
+    /**
+     * @return Возвращает урон тактического ядерного удара в центре взрыва.
+     */
+    public double getMaxTacticalNuclearStrikeDamage() {
+        return maxTacticalNuclearStrikeDamage;
+    }
+
+    /**
+     * @return Возвращает радиус взрыва тактического ядерного удара.
+     */
+    public double getTacticalNuclearStrikeRadius() {
+        return tacticalNuclearStrikeRadius;
+    }
+
+    /**
+     * @return Возвращает задержку между запросом нанесения тактического ядерного удара и собственно самим нанесением.
+     */
+    public int getTacticalNuclearStrikeDelay() {
+        return tacticalNuclearStrikeDelay;
     }
 }

@@ -24,6 +24,7 @@ public class Move {
     private VehicleType vehicleType;
 
     private long facilityId = -1L;
+    private long vehicleId = -1L;
 
     /**
      * @return Возвращает текущее действие игрока.
@@ -162,10 +163,15 @@ public class Move {
      * Является обязательным параметром для действия {@code ActionType.SCALE} и задаёт абсциссу точки, относительно
      * которой необходимо совершить масштабирование.
      * <p>
+     * Является обязательным параметром для действия {@code ActionType.TACTICAL_NUCLEAR_STRIKE} и задаёт абсциссу цели
+     * тактического ядерного удара.
+     * <p>
      * Корректными значениями для действия {@code ActionType.MOVE} являются вещественные числа от
      * {@code -game.worldWidth} до {@code game.worldWidth} включительно. Корректными значениями для действий
      * {@code ActionType.ROTATE} и {@code ActionType.SCALE} являются вещественные числа от {@code -game.worldWidth} до
-     * {@code 2.0 * game.worldWidth} включительно.
+     * {@code 2.0 * game.worldWidth} включительно. Корректными значениями для действия
+     * {@code ActionType.TACTICAL_NUCLEAR_STRIKE} являются вещественные числа от {@code 0.0} до {@code game.worldWidth}
+     * включительно.
      */
     public void setX(double x) {
         this.x = x;
@@ -190,10 +196,15 @@ public class Move {
      * Является обязательным параметром для действия {@code ActionType.SCALE} и задаёт ординату точки, относительно
      * которой необходимо совершить масштабирование.
      * <p>
+     * Является обязательным параметром для действия {@code ActionType.TACTICAL_NUCLEAR_STRIKE} и задаёт ординату цели
+     * тактического ядерного удара.
+     * <p>
      * Корректными значениями для действия {@code ActionType.MOVE} являются вещественные числа от
      * {@code -game.worldHeight} до {@code game.worldHeight} включительно. Корректными значениями для действий
      * {@code ActionType.ROTATE} и {@code ActionType.SCALE} являются вещественные числа от {@code -game.worldHeight} до
-     * {@code 2.0 * game.worldHeight} включительно.
+     * {@code 2.0 * game.worldHeight} включительно. Корректными значениями для действия
+     * {@code ActionType.TACTICAL_NUCLEAR_STRIKE} являются вещественные числа от {@code 0.0} до {@code game.worldHeight}
+     * включительно.
      */
     public void setY(double y) {
         this.y = y;
@@ -318,5 +329,23 @@ public class Move {
      */
     public void setFacilityId(long facilityId) {
         this.facilityId = facilityId;
+    }
+
+    /**
+     * @return Возвращает текущий идентификатор техники.
+     */
+    public long getVehicleId() {
+        return vehicleId;
+    }
+
+    /**
+     * Устанавливает идентификатор техники.
+     * <p>
+     * Является обязательным параметром для действия {@code ActionType.TACTICAL_NUCLEAR_STRIKE}. Если юнит с данным
+     * идентификатором отсутствует в игре, принадлежит другому игроку или цель удара находится вне зоны видимости этого
+     * юнита, то действие будет проигнорировано.
+     */
+    public void setVehicleId(long vehicleId) {
+        this.vehicleId = vehicleId;
     }
 }
