@@ -549,7 +549,7 @@ public class Game {
     }
 
     /**
-     * @return Возвращает количество тиков, необхожимое для производства одного танка на заводе
+     * @return Возвращает количество тиков, необходимое для производства одного танка на заводе
      * ({@code FacilityType.VEHICLE_FACTORY}).
      */
     public int getTankProductionCost() {
@@ -627,7 +627,7 @@ public class Game {
     }
 
     /**
-     * @return Возвращает количество тиков, необхожимое для производства одной БМП на заводе
+     * @return Возвращает количество тиков, необходимое для производства одной БМП на заводе
      * ({@code FacilityType.VEHICLE_FACTORY}).
      */
     public int getIfvProductionCost() {
@@ -670,7 +670,7 @@ public class Game {
     }
 
     /**
-     * @return Возвращает количество тиков, необхожимое для производства одной БРЭМ на заводе
+     * @return Возвращает количество тиков, необходимое для производства одной БРЭМ на заводе
      * ({@code FacilityType.VEHICLE_FACTORY}).
      */
     public int getArrvProductionCost() {
@@ -764,7 +764,7 @@ public class Game {
     }
 
     /**
-     * @return Возвращает количество тиков, необхожимое для производства одного ударного вертолёта на заводе
+     * @return Возвращает количество тиков, необходимое для производства одного ударного вертолёта на заводе
      * ({@code FacilityType.VEHICLE_FACTORY}).
      */
     public int getHelicopterProductionCost() {
@@ -842,7 +842,7 @@ public class Game {
     }
 
     /**
-     * @return Возвращает количество тиков, необхожимое для производства одного истребителя на заводе
+     * @return Возвращает количество тиков, необходимое для производства одного истребителя на заводе
      * ({@code FacilityType.VEHICLE_FACTORY}).
      */
     public int getFighterProductionCost() {
